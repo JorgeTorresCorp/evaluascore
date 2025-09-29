@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Evaluación Crediticia - [WhatsUp-Go SLV]</title>
+    <style>
+        /* Estilos CSS profesionales */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1 { color: #004d99; text-align: center; margin-bottom: 25px; border-bottom: 2px solid #e0e0e0; padding-bottom: 10px; }
+        h2 { color: #007bff; border-left: 5px solid #007bff; padding-left: 10px; margin-top: 30px; margin-bottom: 15px; }
+        .form-group { margin-bottom: 15px; display: flex; flex-wrap: wrap; }
+        .form-group > div { flex: 1 1 45%; margin-right: 5%; }
+        .form-group > div:nth-child(even) { margin-right: 0; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9em; color: #555; }
+        input[type="text"], input[type="number"], input[type="email"], select {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1em; transition: border-color 0.3s;
+        }
+        input:focus, select:focus { border-color: #007bff; outline: none; }
+        .full-width { flex: 1 1 100% !important; margin-right: 0 !important; }
+        
+        /* Estilo del botón */
+        #btn-enviar {
+            background-color: #28a745; /* Verde de WhatsApp */
+            color: white; padding: 15px 25px; border: none; border-radius: 5px; cursor: pointer;
+            font-size: 1.1em; font-weight: 700; width: 100%; transition: background-color 0.3s;
+        }
+        #btn-enviar:hover { background-color: #218838; }
+        #message { margin-top: 20px; padding: 10px; border-radius: 5px; text-align: center; font-weight: 600; display: none; }
+        .company-name { text-align: center; margin-top: 10px; font-size: 0.8em; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitud de Consolidación de Deudas</h1>
+        <div class="company-name">Presentado por: **[WhatsUp-Go SLV]**</div>
+
+        <form id="scoreForm">
+            <h2>A. Identificación del Solicitante</h2>
+            <div class="form-group">
+                <div class="full-width"><label for="nombre">1. Nombre Completo</label><input type="text" id="nombre" required></div>
+                <div><label for="dui">2. DUI / ID</label><input type="text" id="dui" required></div>
+                <div><label for="edad">5. Edad (Años)</label><input type="number" id="edad" min="18" max="99" required></div>
+                <div><label for="telefono">3. Teléfono Móvil</label><input type="text" id="telefono" required></div>
+                <div><label for="email">4. Correo Electrónico</label><input type="email" id="email" required></div>
+                <div><label for="estadoCivil">6. Estado Civil</label>
+                    <select id="estadoCivil" required>
+                        <option value="">Seleccione...</option>
+                        <option value="CASADO">CASADO</option><option value="SOLTERO">SOLTERO</option>
+                        <option value="UNION LIBRE">UNIÓN LIBRE</option><option value="DIVORCIADO">DIVORCIADO</option>
+                        <option value="VIUDO">VIUDO</option>
+                    </select>
+                </div>
+                <div><label for="hijos">7. Número de Hijos</label><input type="number" id="hijos" min="0" max="9" required></div>
+            </div>
+
+            <h2>B. Estabilidad Domiciliar</h2>
+            <div class="form-group">
+                <div class="full-width"><label for="direccion">8. Dirección Actual</label><input type="text" id="direccion" required></div>
+                <div><label for="tiempoResidencia">9. Tiempo de Residencia (Años)</label><input type="number" id="tiempoResidencia" min="0" max="99" required></div>
+                <div><label for="tipoVivienda">10. Tipo de Vivienda</label>
+                    <select id="tipoVivienda" required>
+                        <option value="">Seleccione...</option>
+                        <option value="PROPIA/RESIDENCIAL">PROPIA/RESIDENCIAL</option>
+                        <option value="ALQUILADA/UNIFAMILIAR (URBANA)">ALQUILADA/UNIFAMILIAR (URBANA)</option>
+                        <option value="VIVIENDA PEQUEÑA/MESON">VIVIENDA PEQUEÑA/MESÓN</option>
+                        <option value="RURAL">RURAL</option>
+                    </select>
+                </div>
+            </div>
+            
+            <h2>C. Estabilidad Financiera y Laboral</h2>
+            <div class="form-group">
+                <div><label for="tipoTrabajo">11. Negocio Propio o Dependiente</label>
+                    <select id="tipoTrabajo" required>
+                        <option value="">Seleccione...</option>
+                        <option value="PROPIO">PROPIO</option><option value="DEPENDIENTE">DEPENDIENTE</option>
+                    </select>
+                </div>
+                <div><label for="cotizaAFP">12. Cotiza AFP</label>
+                    <select id="cotizaAFP" required>
+                        <option value="">Seleccione...</option>
+                        <option value="SI">SI</option><option value="NO">NO</option>
+                    </select>
+                </div>
+                <div class="full-width"><label for="empleador">13. Nombre del Empleador o Negocio</label><input type="text" id="empleador" required></div>
+                <div><label for="tiempoLaboral">14. Tiempo Laboral Actual (Años)</label><input type="number" id="tiempoLaboral" min="0" max="50" required></div>
+                <div><label for="ingresosNetos">15. Ingresos Netos Mensuales ($)</label><input type="number" id="ingresosNetos" step="0.01" min="0" required></div>
+                <div><label for="otrosIngresos">16. Otros Ingresos Mensuales ($)</label><input type="number" id="otrosIngresos" step="0.01" min="0" required></div>
+                <div><label for="origenOtros">17. Origen de los Otros Ingresos</label>
+                    <select id="origenOtros" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Remesas Familiares">Remesas Familiares</option><option value="Renta de Inmuebles">Renta de Inmuebles</option>
+                        <option value="Apoyo Familiar">Apoyo Familiar</option><option value="Emprendimiento">Emprendimiento</option>
+                        <option value="Servicio Transporte Privado">Servicio Transporte Privado</option><option value="Pensión/Jubilación">Pensión/Jubilación</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+            </div>
+
+            <h2>D. Historial Crediticio y Deudas</h2>
+            <div class="form-group">
+                <div><label for="cantDeudas">18. Cantidad de Deudas a Consolidar</label><input type="number" id="cantDeudas" min="0" max="99" required></div>
+                <div><label for="saldoTotalDeuda">19. Saldo Total Deuda a Consolidar ($)</label><input type="number" id="saldoTotalDeuda" step="0.01" min="0" required></div>
+                <div><label for="catCrediticia">20. Categoría Crediticia Más Baja</label>
+                    <select id="catCrediticia" required>
+                        <option value="">Seleccione...</option>
+                        <option value="A1">A1</option><option value="A2">A2</option>
+                        <option value="B">B</option><option value="C1">C1</option>
+                        <option value="C2">C2</option><option value="D1">D1</option>
+                        <option value="D2">D2</option><option value="E">E</option>
+                    </select>
+                </div>
+                <div><label for="cantTC">21. Cantidad de Tarjetas de Crédito</label><input type="number" id="cantTC" min="0" max="99" required></div>
+                <div><label for="deudaTC">22. Total Deuda de TC ($)</label><input type="number" id="deudaTC" step="0.01" min="0" required></div>
+                <div><label for="cantPrestamos">23. Cantidad de Préstamos</label><input type="number" id="cantPrestamos" min="0" max="99" required></div>
+                <div><label for="deudaPrestamos">24. Total Deuda de Préstamos ($)</label><input type="number" id="deudaPrestamos" step="0.01" min="0" required></div>
+                <div><label for="saldoOtrasDeudas">25. Saldo Otras Deudas ($)</label><input type="number" id="saldoOtrasDeudas" step="0.01" min="0" required></div>
+                <div><label for="cuotasActuales">26. Suma Total de Cuotas Pago Actual ($)</label><input type="number" id="cuotasActuales" step="0.01" min="0" required></div>
+                <div><label for="cuotaConsolidada">27. Cuota Consolidada a Cancelar ($)</label><input type="number" id="cuotaConsolidada" step="0.01" min="0" required></div>
+                <div class="full-width"><label for="autoriza">28. Autoriza a Consultar y Compartir Información</label>
+                    <select id="autoriza" required>
+                        <option value="">Seleccione...</option>
+                        <option value="SI">SI</option><option value="NO">NO</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="btn-enviar">Enviar Información</button>
+            <div id="message"></div>
+        </form>
+    </div>
+    <script>
+        document.getElementById('scoreForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-enviar');
+            const msgDiv = document.getElementById('message');
+            
+            // Reemplaza ESTE URL con el URL de la API de Google Apps Script que obtendrás en el paso 2.
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbwP9lsFHGmH-jLjsH0zj8CxDdRToW9RRaY2liXcvP1heR3L3IGtfR_LSw0HwXqi28w/exec"; 
+
+            // 1. Recolección de datos
+            const data = {
+                // A. Perfil de Identificación
+                nombre: document.getElementById('nombre').value,
+                dui: document.getElementById('dui').value,
+                telefono: document.getElementById('telefono').value,
+                email: document.getElementById('email').value,
+                edad: document.getElementById('edad').value,
+                estadoCivil: document.getElementById('estadoCivil').value,
+                hijos: document.getElementById('hijos').value,
+                // B. Estabilidad Domiciliar
+                direccion: document.getElementById('direccion').value,
+                tiempoResidencia: document.getElementById('tiempoResidencia').value,
+                tipoVivienda: document.getElementById('tipoVivienda').value,
+                // C. Estabilidad Financiera y Laboral
+                tipoTrabajo: document.getElementById('tipoTrabajo').value,
+                cotizaAFP: document.getElementById('cotizaAFP').value,
+                empleador: document.getElementById('empleador').value,
+                tiempoLaboral: document.getElementById('tiempoLaboral').value,
+                ingresosNetos: document.getElementById('ingresosNetos').value,
+                otrosIngresos: document.getElementById('otrosIngresos').value,
+                origenOtros: document.getElementById('origenOtros').value,
+                // D. Historial Crediticio y Deudas
+                cantDeudas: document.getElementById('cantDeudas').value,
+                saldoTotalDeuda: document.getElementById('saldoTotalDeuda').value,
+                catCrediticia: document.getElementById('catCrediticia').value,
+                cantTC: document.getElementById('cantTC').value,
+                deudaTC: document.getElementById('deudaTC').value,
+                cantPrestamos: document.getElementById('cantPrestamos').value,
+                deudaPrestamos: document.getElementById('deudaPrestamos').value,
+                saldoOtrasDeudas: document.getElementById('saldoOtrasDeudas').value,
+                cuotasActuales: document.getElementById('cuotasActuales').value,
+                cuotaConsolidada: document.getElementById('cuotaConsolidada').value,
+                autoriza: document.getElementById('autoriza').value
+            };
+
+            // 2. Envío de datos al API (Google Apps Script)
+            btn.disabled = true;
+            btn.textContent = "Enviando, por favor espere...";
+            msgDiv.style.display = 'none';
+
+            fetch(GAS_URL, {
+                method: "POST",
+                mode: "no-cors", // Necesario para la política CORS de GAS
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                // Como usamos mode: "no-cors" para que funcione en GAS,
+                // la respuesta es opaca y siempre 'ok'. El manejo de éxito
+                // se hace asumiendo que el envío fue correcto.
+                msgDiv.textContent = "✅ ¡Información enviada con éxito! Esperando confirmación por WhatsApp...";
+                msgDiv.style.backgroundColor = '#d4edda';
+                msgDiv.style.color = '#155724';
+                msgDiv.style.display = 'block';
+
+                // Aquí podrías agregar una lógica de retraso y recarga del formulario
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = "Enviar Información";
+                    document.getElementById('scoreForm').reset();
+                }, 5000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                msgDiv.textContent = "❌ Ocurrió un error al enviar. Intente de nuevo.";
+                msgDiv.style.backgroundColor = '#f8d7da';
+                msgDiv.style.color = '#721c24';
+                msgDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = "Enviar Información";
+            });
+        });
+    </script>
+</body>
+</html>
