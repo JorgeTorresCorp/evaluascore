@@ -34,7 +34,7 @@
 <body>
     <div class="container">
         <h1>Solicitud de Evaluación Consolidación de Deudas</h1>
-        <div class="company-name">** Al Completar la Información Se Enviará Por WhatsApp Un Númmero de Gestión Para Seguimiento, By ScoreCredit 2025 **</div>
+        <div class="company-name">** Al Completar la Información Se Enviará Por WhatsApp Un Númmero de Gestión Para Seguimiento | ScoreCredit 2025 **</div>
 
         <form id="scoreForm">
             <h2>A. Identificación del Solicitante</h2>
@@ -75,7 +75,7 @@
                 <div><label for="tipoTrabajo">11. Negocio Propio o Dependiente</label>
                     <select id="tipoTrabajo" required>
                         <option value="">Seleccione...</option>
-                        <option value="PROPIO">PROPIETARIO</option><option value="DEPENDIENTE">DEPENDIENTE/EMPLEADO</option>
+                        <option value="PROPIO">NEGOCIO PROPIO</option><option value="DEPENDIENTE">EMPLEADO/DEPENDIENTE</option>
                     </select>
                 </div>
                 <div><label for="cotizaAFP">12. Cotiza AFP</label>
@@ -178,7 +178,7 @@
 
             // 2. Envío de datos al API (Google Apps Script)
             btn.disabled = true;
-            btn.textContent = "Enviando, por favor espere...";
+            btn.textContent = "Enviando Datos, Por Favor Espere...";
             msgDiv.style.display = 'none';
 
             fetch(GAS_URL, {
@@ -191,7 +191,7 @@
                 // Como usamos mode: "no-cors" para que funcione en GAS,
                 // la respuesta es opaca y siempre 'ok'. El manejo de éxito
                 // se hace asumiendo que el envío fue correcto.
-                msgDiv.textContent = "✅ ¡Información enviada con éxito! Esperando confirmación por WhatsApp...";
+                msgDiv.textContent = "✅ ¡Información Enviada con Éxito! Esperando Confirmación Por WhatsApp...";
                 msgDiv.style.backgroundColor = '#d4edda';
                 msgDiv.style.color = '#155724';
                 msgDiv.style.display = 'block';
@@ -205,7 +205,7 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                msgDiv.textContent = "❌ Ocurrió un error al enviar. Intente de nuevo.";
+                msgDiv.textContent = "❌ Ocurrió un Error al Enviar. Intente de Nuevo.";
                 msgDiv.style.backgroundColor = '#f8d7da';
                 msgDiv.style.color = '#721c24';
                 msgDiv.style.display = 'block';
@@ -215,9 +215,4 @@
         });
     </script>
 </body>
-
-</html>
-
-
-
 
