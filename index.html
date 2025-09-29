@@ -33,8 +33,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Solicitud de Consolidación de Deudas</h1>
-        <div class="company-name">Presentado por: **[WhatsUp-Go SLV]**</div>
+        <h1>Solicitud de Evaluación Consolidación de Deudas</h1>
+        <div class="company-name">** Al Completar la Información te Será Enviado Por WhatsApp Un Númmero de Gestión, By ScoreCredit 2025 **</div>
 
         <form id="scoreForm">
             <h2>A. Identificación del Solicitante</h2>
@@ -75,7 +75,7 @@
                 <div><label for="tipoTrabajo">11. Negocio Propio o Dependiente</label>
                     <select id="tipoTrabajo" required>
                         <option value="">Seleccione...</option>
-                        <option value="PROPIO">PROPIO</option><option value="DEPENDIENTE">DEPENDIENTE</option>
+                        <option value="PROPIO">PROPIETARIO</option><option value="DEPENDIENTE">DEPENDIENTE/EMPLEADO</option>
                     </select>
                 </div>
                 <div><label for="cotizaAFP">12. Cotiza AFP</label>
@@ -103,7 +103,7 @@
             <div class="form-group">
                 <div><label for="cantDeudas">18. Cantidad de Deudas a Consolidar</label><input type="number" id="cantDeudas" min="0" max="99" required></div>
                 <div><label for="saldoTotalDeuda">19. Saldo Total Deuda a Consolidar ($)</label><input type="number" id="saldoTotalDeuda" step="0.01" min="0" required></div>
-                <div><label for="catCrediticia">20. Categoría Crediticia Más Baja</label>
+                <div><label for="catCrediticia">20. Categoría Crediticia Más Baja (Últimos 6 Meses)</label>
                     <select id="catCrediticia" required>
                         <option value="">Seleccione...</option>
                         <option value="A1">A1</option><option value="A2">A2</option>
@@ -113,7 +113,7 @@
                     </select>
                 </div>
                 <div><label for="cantTC">21. Cantidad de Tarjetas de Crédito</label><input type="number" id="cantTC" min="0" max="99" required></div>
-                <div><label for="deudaTC">22. Total Deuda de TC ($)</label><input type="number" id="deudaTC" step="0.01" min="0" required></div>
+                <div><label for="deudaTC">22. Total Deuda de Tarjetas Crédito ($)</label><input type="number" id="deudaTC" step="0.01" min="0" required></div>
                 <div><label for="cantPrestamos">23. Cantidad de Préstamos</label><input type="number" id="cantPrestamos" min="0" max="99" required></div>
                 <div><label for="deudaPrestamos">24. Total Deuda de Préstamos ($)</label><input type="number" id="deudaPrestamos" step="0.01" min="0" required></div>
                 <div><label for="saldoOtrasDeudas">25. Saldo Otras Deudas ($)</label><input type="number" id="saldoOtrasDeudas" step="0.01" min="0" required></div>
@@ -215,4 +215,5 @@
         });
     </script>
 </body>
+
 </html>
